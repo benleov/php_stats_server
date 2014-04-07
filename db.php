@@ -2,12 +2,11 @@
 
 date_default_timezone_set('UTC');
 
-// NOTES
-// dynamic db
-// $db = $m->selectDB('test');
-// dynamic collection:
-// $collection = new MongoCollection($db, 'phpmanual');
-
+/**
+ * Selects the statastics database, and retreives the collection of entries.
+ * 
+ * @return Collection
+ */
 function get_db_collection() {
     $m = new Mongo();
 
@@ -18,14 +17,26 @@ function get_db_collection() {
 
     // remove all from collection (uncomment and refresh to clear database)
     //$collection->remove();
+
     return $collection;
 }
 
+/**
+ * Removes all entries.
+ */
+function remove_all() {
+    $m = new Mongo();
+    $collection = $m->stats->entries;
+    $collection->remove();
+}
+
+/**
+ * Returns the statistics database, which contains the entries collection.
+ * 
+ * @return Database
+ */
 function get_db() {
     $m = new Mongo();
-
-    // select a database (stats)
-
     $db = $m->stats;
     return $db;
 }

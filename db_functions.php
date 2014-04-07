@@ -143,5 +143,3 @@ function sum($user_key, $tag, $interval, $include_last) {
 
     return $results;
 }
-
-?>

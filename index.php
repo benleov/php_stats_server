@@ -7,7 +7,7 @@
 		// TODO: 
 		// Move all the select code out of here and into db_functions.
 		// Fix month "off by one" date issue.
-		// 
+		
 		// calendar date field picker - must set the value of the field to
 		// something that strtotime(...) can parse. Sending "dd m Y" which I beleive can and is converting properly
 		// see http://php.net/manual/en/function.strtotime.php
@@ -19,14 +19,15 @@
 		
 		// example group by
 		// http://localhost/index.php?tag=1&group=100
-		// CAREFUL: time is in milliseconds! Setting too low can be very slow! (by default php times out after 30 seconds)
+                // 
+		// CAREFUL: time is in milliseconds! Setting too low can be very slow! 
+                // (by default php times out after 30 seconds)
 		
 		// displaying all entries has been moved to entries.php
 		
 		// should each user be placed in a separate database or collection?
 		
 		$collection = $db->entries;
-		//$collection->remove(); //NOTE REMOVE EVERYTHING FROM DATABASE
 		$tag_results = $db->command(array("distinct" => "entries", "key" => "tag")); // TODO: move to db_functions
 		$selected_tag = filter_input(INPUT_GET, 'tag', FILTER_SANITIZE_STRING);
 		$group_interval_name = filter_input(INPUT_GET, 'group', FILTER_SANITIZE_STRING);
@@ -254,7 +255,6 @@
 		}
 		
 		if(from_time !== null) {
-			console.log("last time set");
 			// TODO: static user_key
 			$.getJSON('json/latest_entries.php?user_key=1&tag=<?php echo$selected_tag; ?>&date=' + from_time, function(data) {
 			

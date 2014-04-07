@@ -1,3 +1,8 @@
+<?php
+/**
+ * Displays a form allowing the user to modify an entry. 
+ */
+?>
 <html>
     <head><title>update existing</title></head>
 
