@@ -2,8 +2,8 @@
 php_stats_server
 ===============================
 
-Allows collection time based statistics (value, timestamp, tag), and plots them
-on a graph using high-charts. Can also import from CSV file.
+Allows collection of time based statistics (value, timestamp, tag), and plots them
+on a graph using high-charts, grouped by a time interval. Can also import from CSV file.
 
 Requires
 -------------------------------
